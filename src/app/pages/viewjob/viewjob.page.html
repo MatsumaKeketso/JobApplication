@@ -1,0 +1,29 @@
+<ion-content  color="light">
+  <div class="loader" [ngClass]="{'loade-hide': jobDetails.title}">
+      <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+<div class="navi">
+  <ion-button (click)="back()" fill="clear" >
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+  </ion-button>
+  <div class="space"></div>
+  <ion-button (click)="openInNewTab(jobDetails.url)" color="dark" expand="block" fill="clear" shape="round">
+    Apply For Job
+  </ion-button>
+</div>
+<div class="jobDetails">
+  <div class="compLogo">
+    <img [src]="jobDetails.company_logo" alt="">
+  </div>
+  <div class="details">
+    <h1>{{jobDetails.title}}</h1>
+    <p><b>{{jobDetails.company}}</b>, {{jobDetails.location}}</p>
+    <p><b>{{jobDetails.type}}</b></p>
+  </div>
+  <div class="fullDesc">
+    <span [innerHTML]="jobDetails.description"></span>
+    <p><i>How to Apply:</i></p>
+    <span [innerHTML]="jobDetails.how_to_apply"></span>
+  </div>
+</div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "JobApplication",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
