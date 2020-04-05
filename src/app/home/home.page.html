@@ -1,7 +1,7 @@
-<ion-content color="light" >
+<ion-content>
   <div id="container">
    <div class="titler">
-     <h1 style="transform: scale(1.6);">Brio</h1>
+     <h1 style="transform: scale(1);">Brio</h1>
 
    </div>
    <div class="list">
@@ -11,7 +11,7 @@
        </ion-button>
        <ion-input style="background: rgb(233, 233, 233);
        border-radius: 20px;" type="text" placeholder="Search" [(ngModel)]="searchBy"></ion-input>
-<ion-button  fill="outline" shape="round" (click)="search()">
+<ion-button  fill="clear" size="small" shape="round" (click)="search()">
   Search
 </ion-button>
      </div>
@@ -19,26 +19,27 @@
         <div class="loader" [ngClass]="{'loade-hide': searchJobs.length > 0}">
             <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
+        
        <div class="job animated fadeInUp" *ngFor="let j of searchJobs">
-          <div class="titler">
-            <div class="image">
-              <img [src]="j.company_logo" alt="">
-            </div>
-            <div class="jobTitle truncate">
-              <h2 >{{j.title}}</h2>
-              <p>{{j.company}}, {{j.location}}</p>
-              <p style="font-size: 12px;margin: 2px 0px;">{{j.created_at}}</p>
-            </div>
-          </div>
-          <div class="description crop">
-            <!-- {{}} -->
-            <span style="opacity: 0.5 !important;" [innerHTML]="j.description"></span>
-          </div>
+        <div class="image" >
+          <img *ngIf="j.company_logo" [src]="j.company_logo" alt="">
+          <img style="object-fit: cover !important;" *ngIf="!j.company_logo" src="../../assets/no_image_placeholder.png" alt="">
+        </div>
+        <div class="jobTitle">
+          <h1 >{{j.title}}</h1>
+          <hr>
+          <p><span style="font-weight: bold;"> <ion-icon name="business-outline"></ion-icon> {{j.company}}</span>, <ion-icon name="location"></ion-icon> {{j.location}}</p>
+<div class="created">
+  <div class="line"></div>
+  <p style="font-size: 12px;margin: 2px 0px;"><i>Posted&nbsp;{{j.created_at | date}}</i></p>
+  <div class="line"></div>
+</div>
           <div class="salary">
-            <p>{{j.type}}</p> <ion-button color="dark" style="margin: 0 !important;" (click)="viewJob(j.id)" expand="block"  size="small" shape="round">
+            <p>{{j.type}}</p> <ion-button color="dark" style="margin: 0 !important;" (click)="viewJob(j.id)" expand="block"  size="small" fill="outline" shape="round">
               View Job
             </ion-button>
           </div>
+        </div>
        </div>
      </div>
    </div>

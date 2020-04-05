@@ -17,13 +17,16 @@
   </div>
   <div class="details">
     <h1>{{jobDetails.title}}</h1>
-    <p><b>{{jobDetails.company}}</b>, {{jobDetails.location}}</p>
+    <hr>
+    <p> <ion-icon name="business-outline"></ion-icon> <b> {{jobDetails.company}}</b>, <ion-icon name="location"></ion-icon> {{jobDetails.location}}</p>
     <p><b>{{jobDetails.type}}</b></p>
   </div>
   <div class="fullDesc">
     <span [innerHTML]="jobDetails.description"></span>
     <p><i>How to Apply:</i></p>
     <span [innerHTML]="jobDetails.how_to_apply"></span>
+   
   </div>
+  <div class="spac"></div>
 </div>
 </ion-content>

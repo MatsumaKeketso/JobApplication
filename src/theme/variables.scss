@@ -2,21 +2,41 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(101, 153, 230); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #005cb3; 
+}
 // Headers
 @font-face {
-  font-family: 'Athene';
+  font-family: 'Segoi';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/fonts/Athene.otf');
+  src: url('../assets/fonts/SEGOEUI.TTF');
+}
+@font-face {
+  font-family: 'ubuntu';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/UBUNTU-B.TTF');
 }
 // Text
-@font-face {
-  font-family: 'Aliquam';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../assets/fonts/AliquamREG.ttf');
-}
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -91,13 +111,13 @@
   --ion-color-light-tint: #f5f6f9;
 }
 h1, h2, h3 {
-  font-family: 'Athene' !important;
+  font-family: 'ubuntu' !important;
 }
 p, span, ul, li {
-  font-family: 'Aliquam' !important;
+  font-family: 'Segoi' !important;
   letter-spacing: 1px;;
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   /*
    * Dark Colors
    * -------------------------------------------

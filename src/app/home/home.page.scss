@@ -108,6 +108,7 @@
   right: 0;
   bottom: 0;
   top: 0;
+  // background: #ffffff;
   .titler {
     display: flex;
     width: 100%;
@@ -131,6 +132,10 @@
       display: flex;
       align-items: center;
       margin: auto;
+      .sc-ion-input-md-h {
+        --padding-top: 5px;
+        --padding-bottom: 5px;
+      }
       h4 {
         margin: 0px 20px;
       }
@@ -139,72 +144,63 @@
       width: 100%;
       height: 90%;
       overflow-y: auto;
-      background: #ebebeb;
-      border-radius: 20px 20px 0px 0px;position: relative;
+      border-radius: 8px 8px 0px 0px;
+      position: relative;
+      padding: 8px 0px;
+  
       .job {
         width: 90%;
         margin: 15px auto;
         height: auto;
-        border-radius: 20px;
-        background: linear-gradient(#ffffff8f,#ffffff8f),url(../../assets/card_bg.svg) no-repeat,#ffffff8f;
-        background-position: 0% 105%;
+        border-radius: 8px;
+        border: solid 2px rgb(233, 233, 233);
         color: rgb(15, 15, 15);;
         overflow: hidden;
         padding: 20px 0px;
-        box-shadow: 0px 10px 5px -7px #1717174b;
-        .titler {
-          display: flex;
-          align-content: center;
-          width: 90%;
-          margin: auto;
-          .image {
+        .image {
+          width: 100%;
+          height: 120px;;
+          img {
+            width: 100%;
             height: 100%;
-            width: 25%;
-            flex-basis: 25%;
-            border-radius: 10%;
-            overflow: hidden;
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
+            object-fit: contain;
+          }
+        }
+        .jobTitle {
+          width: 100%;
+          padding: 5px 15px;
+          h1 {
+            font-weight: 900 !important;
+          }
+          hr {
+            background: rgb(231, 231, 231);
+          }
+          p {
+            margin: 3px 0px;
+          }
+          .created {
+            display: flex;
+            align-items: center;
+            margin: 5px 0px;
+            .line {
+              height: 1px;
+              background: rgb(236, 236, 236);
+              flex-basis: 15%;
+            }
+            p {
+              flex-basis: 70%;
             }
           }
-          .jobTitle {
-            padding: 0px 10px;
-            h2 {
-              margin: 0 0 5px 0px;
-              // font-weight: bold;
-              text-align: left;
-              letter-spacing: 1px;;
-            }
+          .salary {
+            display: flex;
+            align-items: center;
+            padding: 20px 0px 5px 0px;
             p {
               margin: 0;
-              opacity: .7;
+              flex-basis: 100%;
               text-align: left;
-              
+    padding: 0px 14px;
             }
-          }
-        }
-        .description {
-          padding:3px 20px;
-          text-align: left;
-          span{
-            text-align: left;
-            p {
-              opacity: .5;
-            }
-
-          }
-        }
-        .salary {
-          padding:18px 20px 10px;
-          display: flex;
-          align-items: center;
-          p {
-            flex-basis: 100%;
-            margin: 0 0px;
-            text-align: left;
-            font-weight: bolder;
           }
         }
       }

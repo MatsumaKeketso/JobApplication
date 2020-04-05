@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild  } from '@angular/core';
 import {JobsServiceService} from '../services/jobs-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationExtras } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { AlertController, ToastController } from '@ionic/angular';
 import { element } from 'protractor';
+import { IonInfiniteScroll } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
   url = 'https://us-central1-mlab-challenge.cloudfunctions.net/jobs'
   searchJobs:any = []
   jobList:any = []
@@ -75,6 +77,20 @@ export class HomePage {
     }
   }
   async filter() {
+    console.log(78);
+    
+    setTimeout(async () => {
+      console.log('timed out');
+      
+      console.log(this.searchJobs);
+      if (this.searchJobs.length == 0) {
+        let toaster = await this.toastCtrl.create({
+          message:"There are probably no jobs in this criteria.",
+          duration: 3000
+        })
+        await toaster.present()
+      }
+    }, 10000);
     let alerter = await this.alertCtrl.create({
       header: 'Job Type',
       inputs: [
@@ -136,7 +152,7 @@ export class HomePage {
           })
           await toaster.present()
         }
-      }, 30000);
+      }, 1500);
       this.searchJobs = []
       console.log(this.searchBy);
       this.js.getSearchedJob(this.searchBy).subscribe(data => {
